@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+release/
+
+# 运行时缓存 / 生成数据
+.cache/
+
+# 演示音频（大文件，不入库）
+创作者端演示/
+
+# 密钥（含 API Key，勿提交到公开仓库）
+config.json
+
+# 本地
+.claude/
+*.log
+.DS_Store
+Thumbs.db

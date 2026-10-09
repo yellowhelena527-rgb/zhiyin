@@ -1,0 +1,69 @@
+{
+  "common": {
+    "signIn": "登录",
+    "signOut": "退出登录",
+    "loading": "加载中…",
+    "on": "开",
+    "off": "关",
+    "close": "关闭",
+    "save": "保存",
+    "cancel": "取消",
+    "edit": "编辑",
+    "delete": "删除",
+    "userId": "用户 ID"
+  },
+  "language": {
+    "label": "语言",
+    "triggerLabel": "语言：{{language}}",
+    "followSystem": "跟随系统",
+    "followSystemWithLanguage": "跟随系统（{{language}}）",
+    "enUS": "English",
+    "zhCN": "中文"
+  },
+  "errors": {
+    "notFound": {
+      "code": "404",
+      "title": "页面未找到",
+      "description": "你访问的页面不存在，或已被移动。",
+      "backHome": "返回首页"
+    },
+    "generic": {
+      "title": "出了点问题",
+      "description": "发生了意外错误。你可以重试，或返回首页继续。",
+      "tryAgain": "重试",
+      "backHome": "返回首页"
+    }
+  },
+  "starter": {
+    "badge": "Eazo 应用模板",
+    "title": "用 Eazo 构建你的下一个应用",
+    "subtitle": "你现在拥有干净的基础：认证、数据访问与平台能力已就绪，可直接开发产品功能。",
+    "steps": {
+      "readDocs": {
+        "title": "阅读文档",
+        "desc": "打开 AGENTS.md 与 README.md，了解模板架构与约定。",
+        "code": "AGENTS.md + README.md"
+      },
+      "replacePage": {
+        "title": "替换本页",
+        "desc": "将产品 UI 放到 src/components 下，并保持 page.tsx 为薄入口。",
+        "code": "src/app/page.tsx"
+      },
+      "firstFeature": {
+        "title": "开发第一个功能",
+        "desc": "在 src/app/api 添加接口，并通过 src/lib/api 中的类型化 helper 调用。",
+        "code": "src/app/api/*"
+      },
+      "translations": {
+        "title": "补充翻译",
+        "desc": "在 src/i18n/locales 编辑中英文文案；layout 已接入 LanguageSwitcher 与 I18nProvider。",
+        "code": "src/i18n/locales/"
+      }
+    },
+    "nextCommand": {
+      "title": "下一步命令",
+      "desc": "启动开发服务器，实时迭代你的产品。",
+      "command": "bun dev"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 1,
+  "name": "ZhiyinBridge",
+  "slug": "zhiyin-bridge",
+  "version": "0.1.0",
+  "author": "zhiyin",
+  "description": "将网易云实时播放进度推送给知音（声境·耳译）",
+  "betterncm_version": ">=1.0.0",
+  "requirements": ["InfLinkrs"],
+  "loadAfter": ["InfLinkrs"],
+  "injects": {
+    "Main": ["main.js"]
+  }
+}

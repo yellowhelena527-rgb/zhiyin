@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>冰青玻璃 · Frost Cyan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --eazo-safe-area-top:max(56px,env(safe-area-inset-top,0px));
+      --eazo-safe-area-bottom:max(34px,env(safe-area-inset-bottom,0px));
+      --color-bg:#0C1418; --color-bg-2:#111B22; --color-primary:#38D6E8; --color-secondary:#7CE7F2;
+      --color-accent:#DFFAFF; --color-surface:rgba(12,26,34,.58); --color-surface-strong:rgba(18,35,45,.72);
+      --color-text:#EEF9FB; --color-muted:rgba(238,249,251,.62); --color-border:rgba(168,239,248,.18);
+      --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px;
+      --radius-sm:10px; --radius-md:16px; --radius-lg:24px; --radius-xl:30px; --radius-pill:9999px;
+      --blur-glass:20px; --shadow-glass:0 24px 80px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.12);
+      --shadow-glow:0 0 34px rgba(56,214,232,.34), 0 0 90px rgba(56,214,232,.16);
+      --ease:cubic-bezier(.2,.8,.2,1); --dur:220ms;
+    }
+    *{box-sizing:border-box} html,body{height:100%;margin:0;overflow-x:hidden} body{font-family:Inter,system-ui,sans-serif;background:var(--color-bg);color:var(--color-text)}
+    .app-shell{min-height:100svh;padding:var(--eazo-safe-area-top) clamp(18px,4vw,72px) var(--eazo-safe-area-bottom);position:relative;isolation:isolate;overflow:hidden;background:
+      radial-gradient(circle at 22% 28%, rgba(56,214,232,.22), transparent 22%),
+      radial-gradient(circle at 64% 70%, rgba(124,231,242,.16), transparent 28%),
+      linear-gradient(135deg,#0C1418 0%,#101722 52%,#071014 100%)}
+    .ambient{position:absolute;inset:0;z-index:-2;overflow:hidden}.ambient:before,.ambient:after{content:"";position:absolute;border-radius:9999px;filter:blur(44px);opacity:.9;animation:breath 7s var(--ease) infinite alternate}.ambient:before{width:min(52vw,760px);height:min(52vw,760px);left:8%;top:12%;background:radial-gradient(circle,rgba(56,214,232,.42),rgba(56,214,232,.04) 62%,transparent)}.ambient:after{width:min(38vw,520px);height:min(38vw,520px);right:20%;bottom:10%;background:radial-gradient(circle,rgba(127,224,255,.25),rgba(31,115,150,.08) 60%,transparent);animation-delay:-2s}.grain{position:absolute;inset:0;z-index:-1;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.14) .7px,transparent .7px);background-size:18px 18px;mask-image:linear-gradient(120deg,transparent,black 20%,black 80%,transparent)}
+    @keyframes breath{from{transform:scale(.94) translate3d(0,0,0)}to{transform:scale(1.06) translate3d(2%,1%,0)}}
+    .layout{width:min(100%,1440px);margin:0 auto;min-height:calc(100svh - var(--eazo-safe-area-top) - var(--eazo-safe-area-bottom));display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,340px);gap:clamp(24px,5vw,88px);align-items:center}.stage{min-width:0}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-secondary);font-weight:700}.title{font-family:"Space Grotesk",Inter,sans-serif;font-size:clamp(42px,7vw,108px);line-height:.92;letter-spacing:-.055em;margin:18px 0 18px;max-width:760px}.subtitle{font-size:clamp(15px,1.4vw,20px);line-height:1.55;color:var(--color-muted);max-width:520px;margin:0}.sound-mark{margin-top:52px;width:min(460px,70vw);height:148px;position:relative}.wave{position:absolute;inset:0;filter:drop-shadow(0 0 18px rgba(56,214,232,.22))}.wave path{fill:none;stroke:rgba(124,231,242,.5);stroke-width:2.5;stroke-linecap:round}.bead{position:absolute;width:14px;height:14px;border-radius:50%;background:#DFFAFF;box-shadow:var(--shadow-glow)}.b1{left:18%;top:55%}.b2{left:48%;top:20%}.b3{left:78%;top:46%}
+    .panel{width:100%;border:1px solid var(--color-border);border-radius:var(--radius-xl);background:linear-gradient(180deg,rgba(20,43,54,.72),rgba(8,18,24,.54));backdrop-filter:blur(var(--blur-glass));-webkit-backdrop-filter:blur(var(--blur-glass));box-shadow:var(--shadow-glass);padding:18px;position:relative}.panel:before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.16),transparent 38%,rgba(56,214,232,.08));pointer-events:none}.panel-head,.guide,.curve,.dimension{position:relative}.panel-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:18px}.kicker{font-size:11px;color:var(--color-muted);letter-spacing:.14em;text-transform:uppercase}.panel h2{font-family:"Space Grotesk";font-size:24px;line-height:1.1;margin:6px 0 0;letter-spacing:-.04em}.pill{border:1px solid var(--color-border);border-radius:var(--radius-pill);padding:8px 12px;color:var(--color-secondary);font-size:12px;background:rgba(255,255,255,.05)}.guide{padding:8px 0 2px}.guide h3{font-size:15px;margin:0 0 10px}.guide p{margin:0 0 8px;color:var(--color-muted);font-size:13px;line-height:1.55}.guide button{margin-top:4px;border:0;border-radius:var(--radius-pill);padding:10px 14px;background:rgba(56,214,232,.16);color:var(--color-accent);font-weight:700;cursor:pointer;transition:transform var(--dur) var(--ease),background var(--dur)}.guide button:hover{background:rgba(56,214,232,.24)}.guide button:active{transform:scale(.96)}.curve{margin:14px 0 0;padding:6px 0}.curve svg{width:100%;height:68px;display:block}.curve path{fill:none;stroke:url(#cyanLine);stroke-width:3;stroke-linecap:round}.curve circle{fill:var(--color-accent);filter:drop-shadow(0 0 8px rgba(56,214,232,.8))}.dimension{display:none}.dimension button{min-width:0;height:46px;border-radius:var(--radius-pill);border:1px solid var(--color-border);background:rgba(255,255,255,.055);color:var(--color-text);font-size:18px;cursor:pointer;transition:all var(--dur) var(--ease)}.dimension button:hover{background:rgba(56,214,232,.14);box-shadow:0 0 18px rgba(56,214,232,.12)}.dimension button:active{transform:scale(.94)}.dimension .active{background:linear-gradient(135deg,rgba(56,214,232,.32),rgba(124,231,242,.16));box-shadow:var(--shadow-glow)}
+    .orb{position:fixed;right:max(24px,env(safe-area-inset-right,0px) + 24px);bottom:max(24px,var(--eazo-safe-area-bottom));width:78px;height:78px;border-radius:999px;border:1px solid rgba(216,252,255,.28);background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.42),rgba(124,231,242,.28) 28%,rgba(56,214,232,.18) 58%,rgba(13,35,44,.62));backdrop-filter:blur(14px);box-shadow:var(--shadow-glow),inset 0 1px 16px rgba(255,255,255,.18);cursor:pointer;animation:orb 3.8s var(--ease) infinite;z-index:5}.orb:after{content:"Ⅱ";color:rgba(239,253,255,.82);font-weight:800;font-size:20px}.orb:hover{transform:translateY(-2px) scale(1.03)}.orb:active{transform:scale(.94)}@keyframes orb{50%{box-shadow:0 0 48px rgba(56,214,232,.46),0 0 120px rgba(56,214,232,.2),inset 0 1px 18px rgba(255,255,255,.2)}}
+    @media (max-width:760px){.layout{display:block}.stage{margin-bottom:24px}.title{font-size:48px}.sound-mark{height:110px;margin-top:30px}.panel{max-width:100%}.orb{width:66px;height:66px}}
+    @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <div class="ambient"></div><div class="grain"></div>
+    <section class="layout" aria-label="音乐实时导览面板">
+      <div class="stage">
+        <div class="eyebrow">LIVE MUSIC GUIDE</div>
+        <h1 class="title">sound becomes visible.</h1>
+        <p class="subtitle">实时导览，安静浮现。</p>
+        <div class="sound-mark" aria-hidden="true"><svg class="wave" viewBox="0 0 460 148"><path d="M8 92 C74 20, 114 132, 178 64 S290 44, 344 86 S416 110, 452 44"/><path d="M16 116 C80 74, 132 120, 198 98 S306 18, 440 102" opacity=".35"/></svg><i class="bead b1"></i><i class="bead b2"></i><i class="bead b3"></i></div>
+      </div>
+      <aside class="panel">
+        <div class="panel-head"><div><span class="kicker">Now guiding</span><h2>Blue in minor</h2></div><span class="pill">01:32</span></div>
+        <article class="guide"><p><b>技术</b>：人声后撤，鼓组留白。</p><p><b>创作</b>：夜色推远，旋律发光。</p><button onclick="console.log('clicked')">展开</button></article>
+        <div class="curve"><svg viewBox="0 0 280 78"><defs><linearGradient id="cyanLine"><stop stop-color="#38D6E8"/><stop offset="1" stop-color="#DFFAFF"/></linearGradient></defs><path d="M6 52 C42 18, 76 60, 112 34 S182 20, 220 48 S260 66, 274 28"/><circle cx="58" cy="32" r="4"/><circle cx="154" cy="27" r="4"/><circle cx="236" cy="50" r="4"/></svg></div>
+        <div class="dimension"><button onclick="console.log('clicked')">🎤</button><button class="active" onclick="console.log('clicked')">🥁</button><button onclick="console.log('clicked')">🎸</button><button onclick="console.log('clicked')">🌫</button></div>
+      </aside>
+    </section>
+    <button class="orb" aria-label="打开导览面板" onclick="console.log('clicked')"></button>
+  </main>
+</body>
+</html>

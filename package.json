@@ -1,0 +1,56 @@
+{
+  "name": "shengjing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "声境 · 耳译 — 音乐导览悬浮球（Electron 桌面应用）",
+  "author": "zhiyin",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n vite,electron \"vite\" \"wait-on tcp:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .\"",
+    "build": "cd renderer && npm run build",
+    "start": "electron .",
+    "preview": "vite preview",
+    "pack": "electron-builder --dir",
+    "dist": "npm run build && cross-env ELECTRON_BUILDER_BINARIES_MIRROR=https://npmmirror.com/mirrors/electron-builder-binaries/ electron-builder --win"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.1",
+    "electron-builder": "^26.15.3",
+    "vite": "^5.4.8",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.shengjing.zhiyin",
+    "productName": "知音",
+    "artifactName": "Zhiyin-${version}-${arch}.${ext}",
+    "directories": { "output": "release" },
+    "files": [
+      "electron/**/*",
+      "renderer/out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      { "from": "ncm-plugin", "to": "ncm-plugin" }
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "知音"
+    }
+  }
+}

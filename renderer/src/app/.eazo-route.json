@@ -1,0 +1,8 @@
+{
+  "route": "",
+  "name": "导览面板",
+  "nav_type": "tab",
+  "order_index": 0,
+  "icon": "music",
+  "summary": "知音音乐实时导览面板首屏"
+}

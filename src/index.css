@@ -1,0 +1,313 @@
+:root {
+  --bg-1: #0a0a0f;
+  --bg-2: #1a1a2e;
+  --amber: #f7b84a;
+  --blue: #4a7cf7;
+  --text-1: rgba(255, 255, 255, 0.95);
+  --text-2: rgba(255, 255, 255, 0.6);
+  --text-3: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  background: radial-gradient(1200px 800px at 20% 10%, #1a1a2e 0%, #0a0a0f 62%);
+  color: var(--text-1);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 28px 32px;
+  overflow-y: auto;
+  gap: 20px;
+}
+.main::-webkit-scrollbar {
+  width: 6px;
+}
+.main::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.stage-head {
+  text-align: center;
+}
+.brand {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.brand-sub {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+/* ---------- 演示模式 ---------- */
+.demo-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(247, 184, 74, 0.08);
+  border: 1px solid rgba(247, 184, 74, 0.25);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.demo-btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  background: var(--amber);
+  padding: 9px 18px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.demo-btn:hover {
+  opacity: 0.9;
+}
+.demo-btn.on {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--amber);
+}
+.demo-hint {
+  font-size: 12px;
+  color: var(--text-3);
+}
+.demo-progress {
+  flex: 1;
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.demo-progress__fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--amber);
+  border-radius: 4px;
+  pointer-events: none;
+}
+.demo-progress__thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+.demo-time {
+  font-size: 12px;
+  color: var(--text-2);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.upload-btn.dragover {
+  outline: 2px dashed var(--amber);
+  outline-offset: 4px;
+  opacity: 0.85;
+}
+
+/* ---------- 歌单导入 ---------- */
+.identity-row {
+  display: flex;
+  gap: 10px;
+}
+.identity-btn {
+  flex: 1;
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text-2);
+  padding: 9px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.identity-btn.active {
+  color: #1a1a2e;
+  background: var(--amber);
+  border-color: var(--amber);
+  font-weight: 600;
+}
+
+.import-panel {
+  width: 100%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.upload-btn {
+  align-self: flex-start;
+  font-size: 14px;
+  color: #1a1a2e;
+  background: var(--amber);
+  padding: 10px 20px;
+  border-radius: 22px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.upload-btn:hover {
+  opacity: 0.9;
+}
+.list-title {
+  font-size: 13px;
+  color: var(--text-2);
+  font-weight: 600;
+}
+.hint-text {
+  font-size: 12px;
+  color: var(--text-3);
+}
+.error-text {
+  font-size: 12px;
+  color: #f27d7d;
+}
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.song-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.song-row input {
+  flex: 1;
+  min-width: 0;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-1);
+  padding: 7px 10px;
+  font-size: 13px;
+}
+.song-row input:first-child {
+  flex: 1.4;
+}
+.row-del {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px;
+}
+.row-del:hover {
+  color: #f27d7d;
+}
+.primary-btn {
+  align-self: flex-start;
+  font-size: 14px;
+  color: #1a1a2e;
+  background: var(--amber);
+  padding: 10px 20px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.progress-info {
+  font-size: 13px;
+  color: var(--amber);
+}
+.done-info {
+  font-size: 13px;
+  color: var(--text-1);
+}
+
+/* ---------- 缓存库 ---------- */
+.cache-panel {
+  width: 100%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cache-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.cache-item {
+  font-size: 12px;
+  color: var(--text-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+/* ---------- 外部播放状态 ---------- */
+.status {
+  width: 100%;
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+.status-title {
+  color: var(--text-3);
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.status-track {
+  color: var(--text-1);
+}
+.status-badge {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-3);
+}
+.status-badge.on {
+  background: rgba(247, 184, 74, 0.18);
+  color: var(--amber);
+}
+.status-empty {
+  color: var(--text-3);
+}

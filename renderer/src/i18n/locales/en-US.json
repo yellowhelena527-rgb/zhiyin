@@ -1,0 +1,69 @@
+{
+  "common": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "loading": "Loading…",
+    "on": "On",
+    "off": "Off",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "userId": "User ID"
+  },
+  "language": {
+    "label": "Language",
+    "triggerLabel": "Language: {{language}}",
+    "followSystem": "System",
+    "followSystemWithLanguage": "System ({{language}})",
+    "enUS": "English",
+    "zhCN": "中文"
+  },
+  "errors": {
+    "notFound": {
+      "code": "404",
+      "title": "Page not found",
+      "description": "The page you're looking for doesn't exist or may have been moved.",
+      "backHome": "Back to home"
+    },
+    "generic": {
+      "title": "Something went wrong",
+      "description": "An unexpected error occurred. You can try again or return to the home page.",
+      "tryAgain": "Try again",
+      "backHome": "Back to home"
+    }
+  },
+  "starter": {
+    "badge": "Eazo App Starter",
+    "title": "Build your next app with Eazo",
+    "subtitle": "You now have a clean foundation with auth, data access, and platform integrations ready for your product.",
+    "steps": {
+      "readDocs": {
+        "title": "Read the docs",
+        "desc": "Open AGENTS.md and README.md to understand the template architecture.",
+        "code": "AGENTS.md + README.md"
+      },
+      "replacePage": {
+        "title": "Replace this page",
+        "desc": "Move your product UI into src/components and keep page.tsx thin.",
+        "code": "src/app/page.tsx"
+      },
+      "firstFeature": {
+        "title": "Build your first feature",
+        "desc": "Add API routes under src/app/api and call them from typed helpers.",
+        "code": "src/app/api/*"
+      },
+      "translations": {
+        "title": "Add translations",
+        "desc": "Edit en-US / zh-CN strings in src/i18n/locales. LanguageSwitcher and I18nProvider in layout.tsx are already wired.",
+        "code": "src/i18n/locales/"
+      }
+    },
+    "nextCommand": {
+      "title": "Next command",
+      "desc": "Start developing and iterate in real time.",
+      "command": "bun dev"
+    }
+  }
+}

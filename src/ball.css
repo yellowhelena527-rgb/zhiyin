@@ -1,0 +1,251 @@
+:root {
+  --amber: #f7b84a;
+  --text-1: rgba(255, 255, 255, 0.95);
+  --text-2: rgba(255, 255, 255, 0.6);
+  --text-3: rgba(255, 255, 255, 0.4);
+  --card-bg: rgba(22, 22, 34, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background: transparent;
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  color: var(--text-1);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+.mono {
+  font-family: ui-monospace, 'SF Mono', Consolas, 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.ball-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- 悬浮球本体（锚定右下角） ---------- */
+.ball-fab {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.ball-fab__dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  transition: transform 0.2s ease, opacity 0.3s ease, background 0.3s ease;
+}
+.ball-fab__pulse {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.ball-fab--idle .ball-fab__dot {
+  background: #fff;
+  opacity: 0.35;
+}
+.ball-fab--breathing .ball-fab__dot {
+  animation: breathe 2.5s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+.ball-fab--pulsing .ball-fab__dot {
+  animation: none;
+  opacity: 1;
+}
+.ball-fab--pulsing .ball-fab__pulse {
+  animation: pulse-ring 1s ease-out forwards;
+}
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: 0 0 20px var(--amber);
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+    box-shadow: 0 0 0 var(--amber);
+  }
+}
+.ball-fab:hover .ball-fab__dot {
+  transform: scale(1.25);
+  opacity: 0.95;
+}
+.ball-fab:active .ball-fab__dot {
+  transform: scale(0.75);
+}
+
+/* ---------- 气泡卡片（位于球的左侧） ---------- */
+.bubble {
+  position: absolute;
+  right: 56px;
+  bottom: 4px;
+  width: 336px;
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid var(--amber);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  animation: card-in 0.12s ease-out;
+}
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.bubble__stamp {
+  font-size: 11px;
+  color: var(--amber);
+}
+.bubble__tech {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 8px 0 0;
+}
+.bubble__expand {
+  margin-top: 12px;
+  background: none;
+  border: none;
+  color: var(--text-3);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.bubble__expand:hover {
+  color: var(--text-1);
+}
+.bubble__expand .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.bubble__expand.open .arrow {
+  transform: rotate(90deg);
+}
+.bubble__creative {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- 维度按钮（词·曲·编·混） ---------- */
+.dims {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.dim {
+  background: none;
+  border: 1px solid var(--glass-border);
+  color: var(--text-2);
+  cursor: pointer;
+  padding: 5px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.dim--active {
+  color: var(--amber);
+  background: rgba(247, 184, 74, 0.15);
+  border-color: rgba(247, 184, 74, 0.4);
+}
+.dim-name {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* 专业术语：悬停显示淡框，点击搜索 */
+.term {
+  color: var(--amber);
+  cursor: pointer;
+  padding: 0 2px;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+.term:hover {
+  background: rgba(247, 184, 74, 0.18);
+  box-shadow: 0 0 0 1px rgba(247, 184, 74, 0.55);
+}
+
+/* ---------- 未收录提示 ---------- */
+.bubble--unknown {
+  width: 300px;
+}
+.bubble__title {
+  font-size: 13px;
+  color: var(--text-1);
+  font-weight: 600;
+}
+.bubble__unknown-text {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+}
+
+/* ---------- 正在播放（窗口标题通道，无进度） ---------- */
+.bubble--nowplaying {
+  width: 300px;
+}
+.bubble__nowplaying-label {
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 2px;
+}
+.bubble--nowplaying .bubble__title {
+  margin-top: 8px;
+}
+.bubble__artist {
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  color: var(--text-2);
+}
